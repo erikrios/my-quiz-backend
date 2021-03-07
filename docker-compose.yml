@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  my-quiz-postgres:
+    container_name: "my-quiz-postgres"
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - postgres.env
