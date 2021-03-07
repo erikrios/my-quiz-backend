@@ -7,7 +7,7 @@ require("./startup/prod")(app);
 
 connectToDatabase = async () => {
   try {
-    await db.sequelize.sync();
+    await db.sequelize.sync({ force: true });
     console.log("Postgres connection has been established successfully.");
   } catch (e) {
     console.error(`Unable to connecto to the database: ${e}`);
