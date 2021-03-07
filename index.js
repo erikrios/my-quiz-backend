@@ -1,20 +1,11 @@
 const express = require("express");
 const app = express();
-const sequelize = require("./db/models/index");
+const databaseConnection = require("./db/connections");
 
 require("./startup/routes")(app);
 require("./startup/prod")(app);
 
-const connectToDatabase = async () => {
-  try {
-    await sequelize.sync({ force: true });
-    console.log("Postgres connection has been established successfully.");
-  } catch (e) {
-    console.error(`Unable to connecto to the database: ${e}`);
-  }
-};
-
-connectToDatabase();
+databaseConnection();
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
