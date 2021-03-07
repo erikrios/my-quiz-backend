@@ -28,7 +28,20 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-  } catch (e) {}
+    const category = await Category.findByPk(id);
+    if (!category)
+      return res
+        .status(404)
+        .send(
+          new Response("NOT FOUND", `Category with id ${id} not found.`, null)
+        );
+
+    res.send(new Response("OK", null, category));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("INTERNAL SERVER ERROR", e.message, null));
+  }
 });
 
 const validate = (body) => {
