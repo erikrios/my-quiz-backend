@@ -24,13 +24,19 @@ db.Answer = require("./answer")(sequelize, Sequelize);
 
 db.Category.hasMany(db.Question, { as: "questions" });
 db.Question.belongsTo(db.Category, {
-  foreignKey: "categoryId",
+  foreignKey: {
+    name: "categoryId",
+    allowNull: false,
+  },
   as: "category",
 });
 
 db.Question.hasMany(db.Answer, { as: "answers" });
 db.Answer.belongsTo(db.Question, {
-  foreignKey: "questionId",
+  foreignKey: {
+    name: "questionId",
+    allowNull: false,
+  },
   as: "question",
 });
 
