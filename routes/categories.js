@@ -44,6 +44,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const categories = await Category.findAll();
+
+    res.send(new Response("OK", null, categories));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
 const validate = (body) => {
   const schema = Joi.object({ name: Joi.string().min(2).max(30).required() });
   return schema.validate(body);
