@@ -13,31 +13,31 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   },
 });
 
-const db = {};
+module.exports = sequelize;
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
+// db.sequelize = sequelize;
 
-db.Category = require("./category")(sequelize, Sequelize);
-db.Question = require("./question")(sequelize, Sequelize);
-db.Answer = require("./answer")(sequelize, Sequelize);
+// db.Category = require("./category")(sequelize, Sequelize);
+// db.Question = require("./question")(sequelize, Sequelize);
+// db.Answer = require("./answer")(sequelize, Sequelize);
 
-db.Category.hasMany(db.Question, { as: "questions" });
-db.Question.belongsTo(db.Category, {
-  foreignKey: {
-    name: "categoryId",
-    allowNull: false,
-  },
-  as: "category",
-});
+// db.Category.hasMany(db.Question, { as: "questions" });
+// db.Question.belongsTo(db.Category, {
+//   foreignKey: {
+//     name: "categoryId",
+//     allowNull: false,
+//   },
+//   as: "category",
+// });
 
-db.Question.hasMany(db.Answer, { as: "answers" });
-db.Answer.belongsTo(db.Question, {
-  foreignKey: {
-    name: "questionId",
-    allowNull: false,
-  },
-  as: "question",
-});
+// db.Question.hasMany(db.Answer, { as: "answers" });
+// db.Answer.belongsTo(db.Question, {
+//   foreignKey: {
+//     name: "questionId",
+//     allowNull: false,
+//   },
+//   as: "question",
+// });
 
-module.exports = db;
+// module.exports = db;

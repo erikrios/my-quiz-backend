@@ -1,19 +1,20 @@
-module.exports = (sequelize, DataTypes) => {
-  const Answer = sequelize.define(
-    "answer",
-    {
-      answers: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      isCorrect: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-    },
-    { timestamps: false }
-  );
+const { Sequelize } = require("sequelize");
+const sequelize = require("./index");
 
-  return Answer;
-};
+const Answer = sequelize.define(
+  "answer",
+  {
+    answers: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    isCorrect: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    },
+  },
+  { timestamps: false }
+);
+
+module.exports = Answer;

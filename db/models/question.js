@@ -1,14 +1,15 @@
-module.exports = (sequelize, DataTypes) => {
-  const Question = sequelize.define(
-    "question",
-    {
-      question: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    },
-    { timestamps: false }
-  );
+const { Sequelize } = require("sequelize");
+const sequelize = require("./index");
 
-  return Question;
-};
+const Question = sequelize.define(
+  "question",
+  {
+    question: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+  },
+  { timestamps: false }
+);
+
+module.exports = Question;

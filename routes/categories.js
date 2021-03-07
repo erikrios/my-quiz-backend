@@ -1,10 +1,9 @@
 const express = require("express");
 const Joi = require("joi");
 const Response = require("../models/response");
-const db = require("../db/models/index");
+const Category = require("../db/models/category");
 
 const router = express.Router();
-const Category = db.Category;
 
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
@@ -23,6 +22,13 @@ router.post("/", async (req, res) => {
       .status(500)
       .send(new Response("INTERNAL SERVER ERROR", e.message, null));
   }
+});
+
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+  } catch (e) {}
 });
 
 const validate = (body) => {
