@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
   if (error)
     return res
       .status(400)
-      .send(new Response("BAD REQUEST", error.message, null));
+      .send(new Response("Bad Request", error.message, null));
 
   const { name } = req.body;
 
@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
   } catch (e) {
     res
       .status(500)
-      .send(new Response("INTERNAL SERVER ERROR", e.message, null));
+      .send(new Response("Internal Server Error", e.message, null));
   }
 });
 
@@ -33,14 +33,14 @@ router.get("/:id", async (req, res) => {
       return res
         .status(404)
         .send(
-          new Response("NOT FOUND", `Category with id ${id} not found.`, null)
+          new Response("Not Found", `Category with id ${id} not found.`, null)
         );
 
     res.send(new Response("OK", null, category));
   } catch (e) {
     res
       .status(500)
-      .send(new Response("INTERNAL SERVER ERROR", e.message, null));
+      .send(new Response("Internal Server Error", e.message, null));
   }
 });
 
