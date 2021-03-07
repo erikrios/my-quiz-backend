@@ -108,10 +108,7 @@ Response :
 {
     "status": "string",
     "message": "string",
-    "data": {
-        "id": "number, unique",
-        "name": "string"
-    }
+    "data": "string"
 }
 ```
 
@@ -130,10 +127,7 @@ Response :
 {
     "status": "string",
     "message": "string",
-    "data": {
-        "id": "number, unique",
-        "name": "string"
-    }
+    "data": "string"
 }
 ```
 
@@ -243,6 +237,16 @@ Request :
 }
 ```
 
+Response :
+
+```json
+{
+    "status": "string",
+    "message": "string",
+    "data": "string"
+}
+```
+
 ## Delete Question
 
 Request :
@@ -256,13 +260,8 @@ Response :
 
 ```json
 {
-    "categoryId": "number, unique",
-    "question": "string",
-    "answers": [
-        {
-            "answer": "string",
-            "isCorrent": "boolean"
-        }
-    ]
+    "status": "string",
+    "message": "string",
+    "data": "string"
 }
 ```

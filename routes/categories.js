@@ -81,7 +81,31 @@ router.put("/:id", async (req, res) => {
           new Response("Not Found", `Category with id ${id} not found.`, null)
         );
 
-    res.send(new Response("OK", null, { id: parseInt(id), name }));
+    res.send(
+      new Response("OK", null, `Category with id ${id} successfully updated.`)
+    );
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const affectedRows = await Category.destroy({ where: { id } });
+
+    if (!affectedRows)
+      return res
+        .status(404)
+        .send(
+          new Response("Not Found", `Category with id ${id} not found.`, null)
+        );
+
+    res.send(
+      new Response("OK", null, `Category with id ${id} successfully deleted.`)
+    );
   } catch (e) {
     res
       .status(500)
