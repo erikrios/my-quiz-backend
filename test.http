@@ -11,3 +11,11 @@ GET http://localhost:3000/api/categories/1
 
 ### Get All Category
 GET http://localhost:3000/api/categories
+
+### Update Category
+PUT http://localhost:3000/api/categories/1
+Content-Type: application/json
+
+{
+    "name": "Information Technology"
+}

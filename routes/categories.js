@@ -56,6 +56,39 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  const { error } = validate(req.body);
+  if (error)
+    return res
+      .status(400)
+      .send(new Response("Bad Request", error.message, null));
+
+  const id = req.params.id;
+  const { name } = req.body;
+
+  try {
+    const [affectedRows] = await Category.update(
+      { name },
+      {
+        where: { id },
+      }
+    );
+
+    if (!affectedRows)
+      return res
+        .status(404)
+        .send(
+          new Response("Not Found", `Category with id ${id} not found.`, null)
+        );
+
+    res.send(new Response("OK", null, { id: parseInt(id), name }));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
 const validate = (body) => {
   const schema = Joi.object({ name: Joi.string().min(2).max(30).required() });
   return schema.validate(body);
