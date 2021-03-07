@@ -5,7 +5,7 @@ const db = require("./db/models/index");
 require("./startup/routes")(app);
 require("./startup/prod")(app);
 
-connectToDatabase = async () => {
+const connectToDatabase = async () => {
   try {
     await db.sequelize.sync({ force: true });
     console.log("Postgres connection has been established successfully.");
