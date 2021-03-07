@@ -33,7 +33,7 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "category_id": "number, unique",
+        "id": "number, unique",
         "name": "string"
     }
 }
@@ -55,7 +55,7 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "category_id": "number, unique",
+        "id": "number, unique",
         "name": "string"
     }
 }
@@ -78,7 +78,7 @@ Response :
     "message": "string",
     "data": [
         {
-            "category_id": "string, unique",
+            "id": "string, unique",
             "name": "string"
         }
     ]
@@ -109,7 +109,7 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "category_id": "number, unique",
+        "id": "number, unique",
         "name": "string"
     }
 }
@@ -131,7 +131,7 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "category_id": "number, unique",
+        "id": "number, unique",
         "name": "string"
     }
 }
@@ -150,7 +150,7 @@ Request :
 
 ```json
 {
-    "category_id": "number, unique",
+    "id": "number, unique",
     "question": "string",
     "answers": [
         {
@@ -166,7 +166,7 @@ Request :
 Request :
 
 - Method : GET
-- Endpoint : `/api/questrions/{question_id}`
+- Endpoint : `/api/questions/{question_id}`
 - Header
   - Accept: application/json
 
@@ -177,12 +177,12 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "question_id": "number, unique",
+        "questionId": "number, unique",
         "question": "string",
         "answers": [
             {
                 "answer": "string",
-                "is_corrent": "boolean"
+                "isCorrent": "boolean"
             }
         ]
     }
@@ -206,7 +206,7 @@ Response :
     "message": "string",
     "data": [
         {
-            "question_id": "number, unique",
+            "questionId": "number, unique",
             "question": "string",
             "answers": [
                 {
@@ -232,12 +232,12 @@ Request :
 
 ```json
 {
-    "category_id": "number, unique",
+    "categoryId": "number, unique",
     "question": "string",
     "answers": [
         {
             "answer": "string",
-            "is_corrent": "boolean"
+            "isCorrent": "boolean"
         }
     ]
 }
@@ -256,12 +256,12 @@ Response :
 
 ```json
 {
-    "category_id": "number, unique",
+    "categoryId": "number, unique",
     "question": "string",
     "answers": [
         {
             "answer": "string",
-            "is_corrent": "boolean"
+            "isCorrent": "boolean"
         }
     ]
 }
