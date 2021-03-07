@@ -1,0 +1,23 @@
+{
+  "name": "my-quiz-backend",
+  "version": "1.0.0",
+  "description": "The RESTful API Project Build With Node.js and Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikrios/my-quiz-backend.git"
+  },
+  "keywords": [
+    "quiz",
+    "quiz-app"
+  ],
+  "author": "Erik Rio Setiawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erikrios/my-quiz-backend/issues"
+  },
+  "homepage": "https://github.com/erikrios/my-quiz-backend#readme"
+}
