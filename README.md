@@ -85,7 +85,7 @@ Response :
 }
 ```
 
-### Update Category
+## Update Category
 
 Request :
 
@@ -115,7 +115,7 @@ Response :
 }
 ```
 
-### Delete Category
+## Delete Category
 
 Request :
 
@@ -243,7 +243,7 @@ Request :
 }
 ```
 
-### Delete Question
+## Delete Question
 
 Request :
 
