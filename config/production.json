@@ -1,0 +1,10 @@
+{
+    "message": "Hello, Production!",
+    "db": {
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": ""
+    },
+    "apiKey": ""
+}

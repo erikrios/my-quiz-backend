@@ -1,0 +1,10 @@
+{
+    "message": "Hello, Development!",
+    "db": {
+        "host": "localhost",
+        "user": "erikrios",
+        "password": "Erik1997",
+        "database": "my_quiz"
+    },
+    "apiKey": "ErikRioSetiwan"
+}
