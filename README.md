@@ -144,12 +144,11 @@ Request :
 
 ```json
 {
-    "id": "number, unique",
     "question": "string",
     "answers": [
         {
             "answer": "string",
-            "is_corrent": "boolean"
+            "isCorrect": "boolean"
         }
     ]
 }

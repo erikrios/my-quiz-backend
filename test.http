@@ -22,3 +22,29 @@ Content-Type: application/json
 
 ### Delete Category
 DELETE http://localhost:3000/api/categories/1
+
+### Create Question
+POST http://localhost:3000/api/questions
+Content-Type: application/json
+
+{
+    "question": "The result of 1 + 1 is...",
+    "answers": [
+        {
+            "answer": "The result is 1",
+            "isCorrect": "false"
+        },
+        {
+            "answer": "The result is 2",
+            "isCorrect": "true"
+        },
+        {
+            "answer": "The result is 3",
+            "isCorrect": "false"
+        },
+        {
+            "answer": "The result is 4",
+            "isCorrect": "false"
+        }
+    ]
+}
