@@ -3,8 +3,8 @@ const Category = require("./models/category");
 const Question = require("./models/question");
 const Answer = require("./models/answer");
 
-Category.hasMany(Question, { as: "questions" });
-Question.belongsTo(Category, {
+Category.Questions = Category.hasMany(Question, { as: "questions" });
+Question.Category = Question.belongsTo(Category, {
   foreignKey: {
     name: "categoryId",
     allowNull: false,
@@ -12,8 +12,8 @@ Question.belongsTo(Category, {
   as: "category",
 });
 
-Question.hasMany(Answer, { as: "answers" });
-Answer.belongsTo(Question, {
+Question.Answers = Question.hasMany(Answer, { as: "answers" });
+Answer.Question = Answer.belongsTo(Question, {
   foreignKey: {
     name: "questionId",
     allowNull: false,
