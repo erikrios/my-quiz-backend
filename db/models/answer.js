@@ -4,7 +4,7 @@ const sequelize = require("./index");
 const Answer = sequelize.define(
   "answer",
   {
-    answers: {
+    answer: {
       type: Sequelize.STRING,
       allowNull: false,
     },
