@@ -145,7 +145,7 @@ Request :
 ```json
 {
     "question": "string",
-    "categoryId": "number",
+    "categoryId": "number, unique",
     "answers": [
         {
             "answer": "string",
@@ -162,12 +162,12 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "id": "number",
+        "id": "number, unique",
         "question": "string",
-        "categoryId": "number",
+        "categoryId": "number, unique",
         "answers": [
             {
-                "id": "number",
+                "id": "number, unique",
                 "answer": "string",
                 "isCorrect": "boolean",
                 "questionId": "number"
@@ -193,12 +193,15 @@ Response :
     "status": "string",
     "message": "string",
     "data": {
-        "questionId": "number, unique",
+        "id": "number, unique",
         "question": "string",
+        "categoryId": "number, unique",
         "answers": [
             {
+                "id": "number, unique",
                 "answer": "string",
-                "isCorrent": "boolean"
+                "isCorrect": "boolean",
+                "questionId": "number"
             }
         ]
     }
@@ -222,12 +225,15 @@ Response :
     "message": "string",
     "data": [
         {
-            "questionId": "number, unique",
+            "id": "number, unique",
             "question": "string",
+            "categoryId": "number, unique",
             "answers": [
                 {
+                    "id": "number, unique",
                     "answer": "string",
-                    "is_corrent": "boolean"
+                    "isCorrect": "boolean",
+                    "questionId": "number"
                 }
             ]
         }
@@ -248,12 +254,12 @@ Request :
 
 ```json
 {
-    "categoryId": "number, unique",
     "question": "string",
+    "categoryId": "number, unique",
     "answers": [
         {
             "answer": "string",
-            "isCorrent": "boolean"
+            "isCorrect": "boolean"
         }
     ]
 }
