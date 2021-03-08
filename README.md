@@ -145,12 +145,35 @@ Request :
 ```json
 {
     "question": "string",
+    "categoryId": "number",
     "answers": [
         {
             "answer": "string",
             "isCorrect": "boolean"
         }
     ]
+}
+```
+
+Response :
+
+```json
+{
+    "status": "string",
+    "message": "string",
+    "data": {
+        "id": "number",
+        "question": "string",
+        "categoryId": "number",
+        "answers": [
+            {
+                "id": "number",
+                "answer": "string",
+                "isCorrect": "boolean",
+                "questionId": "number"
+            }
+        ]
+    }
 }
 ```
 

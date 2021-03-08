@@ -29,22 +29,23 @@ Content-Type: application/json
 
 {
     "question": "The result of 1 + 1 is...",
+    "categoryId": 1,
     "answers": [
         {
             "answer": "The result is 1",
-            "isCorrect": "false"
+            "isCorrect": false
         },
         {
             "answer": "The result is 2",
-            "isCorrect": "true"
+            "isCorrect": true
         },
         {
             "answer": "The result is 3",
-            "isCorrect": "false"
+            "isCorrect": false
         },
         {
             "answer": "The result is 4",
-            "isCorrect": "false"
+            "isCorrect": false
         }
     ]
 }
