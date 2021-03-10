@@ -65,4 +65,26 @@ const validate = (body) => {
   return schema.validate(body);
 };
 
+router.get("/:id", auth, async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const question = await Question.findByPk(id, {
+      include: [{ association: Question.Answers, as: "answers" }],
+    });
+    if (!question)
+      return res
+        .status(404)
+        .send(
+          new Response("Not Found", `Question with id ${id} not found.`, null)
+        );
+
+    res.send(new Response("OK", null, question));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
 module.exports = router;
