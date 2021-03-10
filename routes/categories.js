@@ -3,6 +3,7 @@ const Joi = require("joi");
 const auth = require("../middleware/auth");
 const Response = require("../models/response");
 const Category = require("../db/models/category");
+const Answer = require("../db/models/answer");
 
 const router = express.Router();
 
@@ -94,8 +95,11 @@ router.put("/:id", auth, async (req, res) => {
 
 router.delete("/:id", auth, async (req, res) => {
   const id = req.params.id;
+
   try {
     const affectedRows = await Category.destroy({ where: { id } });
+
+    const answers = await Answer.findAll({where: {}})
 
     if (!affectedRows)
       return res

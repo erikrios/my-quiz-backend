@@ -161,4 +161,27 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
+router.delete("/:id", auth, async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await Answer.destroy({ where: { questionId: id } });
+
+    const affectedRows = await Question.destroy({ where: { id } });
+    if (!affectedRows)
+      return res
+        .status(404)
+        .send(
+          new Response("Not Found", `Question with id ${id} not found.`, null)
+        );
+    res.send(
+      new Response("OK", null, `Question with id ${id} successfully deleted.`)
+    );
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
 module.exports = router;

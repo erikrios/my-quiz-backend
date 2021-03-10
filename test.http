@@ -1,6 +1,7 @@
 ### Create Category
 POST http://localhost:3000/api/categories
 Content-Type: application/json
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 {
@@ -9,15 +10,18 @@ API-Key: ErikRioSetiawan
 
 ### Get Category
 GET http://localhost:3000/api/categories/1
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 ### Get All Category
 GET http://localhost:3000/api/categories
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 ### Update Category
 PUT http://localhost:3000/api/categories/1
 Content-Type: application/json
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 {
@@ -26,11 +30,13 @@ API-Key: ErikRioSetiawan
 
 ### Delete Category
 DELETE http://localhost:3000/api/categories/1
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 ### Create Question
 POST http://localhost:3000/api/questions
 Content-Type: application/json
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 {
@@ -58,15 +64,18 @@ API-Key: ErikRioSetiawan
 
 ### Get Question
 GET http://localhost:3000/api/questions/1
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 ### Get All Question
 GET http://localhost:3000/api/questions
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 ### Update Question
 PUT http://localhost:3000/api/questions/1
 Content-Type: application/json
+Accept: application/json
 API-Key: ErikRioSetiawan
 
 {
@@ -91,3 +100,8 @@ API-Key: ErikRioSetiawan
         }
     ]
 }
+
+### Delete Question
+DELETE http://localhost:3000/api/questions/1
+Accept: application/json
+API-Key: ErikRioSetiawan
