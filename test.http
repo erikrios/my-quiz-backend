@@ -35,7 +35,7 @@ API-Key: ErikRioSetiawan
 
 {
     "question": "The result of 1 + 1 is...",
-    "categoryId": 3,
+    "categoryId": 1,
     "answers": [
         {
             "answer": "The result is 1",
@@ -58,5 +58,8 @@ API-Key: ErikRioSetiawan
 
 ### Get Question
 GET http://localhost:3000/api/questions/1
-Content-Type: application/json
+API-Key: ErikRioSetiawan
+
+### Get All Question
+GET http://localhost:3000/api/questions
 API-Key: ErikRioSetiawan

@@ -87,4 +87,18 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
+router.get("/", auth, async (req, res) => {
+  try {
+    const questions = await Question.findAll({
+      include: [{ association: Question.Answers, as: "answers" }],
+    });
+
+    res.send(new Response("OK", null, questions));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
 module.exports = router;
