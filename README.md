@@ -7,7 +7,7 @@ All API must use this authentication
 Request :
 
 - Header
-  - Api-Key : "your secret api key"
+  - API-Key : "your secret api key"
 
 ## Create Category
 
