@@ -1,13 +1,13 @@
 const express = require("express");
 const Joi = require("joi");
+const auth = require("../middleware/auth");
 const Question = require("../db/models/question");
-const Answer = require("../db/models/answer");
 const Category = require("../db/models/category");
 const Response = require("../models/response");
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error)
     return res
