@@ -245,7 +245,7 @@ Response :
 
 Request :
 
-- Method : POST
+- Method : PUT
 - Endpoint : `/api/questions/{question_id}`
 - Header
   - Content-Type : applicatication/json

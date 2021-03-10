@@ -63,3 +63,31 @@ API-Key: ErikRioSetiawan
 ### Get All Question
 GET http://localhost:3000/api/questions
 API-Key: ErikRioSetiawan
+
+### Update Question
+PUT http://localhost:3000/api/questions/1
+Content-Type: application/json
+API-Key: ErikRioSetiawan
+
+{
+    "question": "The founder of Linux is...",
+    "categoryId": 1,
+    "answers": [
+        {
+            "answer": "Sundar Pichai",
+            "isCorrect": false
+        },
+        {
+            "answer": "Bill Gates",
+            "isCorrect": false
+        },
+        {
+            "answer": "Linus Torvalds",
+            "isCorrect": true
+        },
+        {
+            "answer": "Elon Musk",
+            "isCorrect": false
+        }
+    ]
+}

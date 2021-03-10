@@ -3,6 +3,7 @@ const Joi = require("joi");
 const auth = require("../middleware/auth");
 const Question = require("../db/models/question");
 const Category = require("../db/models/category");
+const Answer = require("../db/models/answer");
 const Response = require("../models/response");
 
 const router = express.Router();
@@ -94,6 +95,65 @@ router.get("/", auth, async (req, res) => {
     });
 
     res.send(new Response("OK", null, questions));
+  } catch (e) {
+    res
+      .status(500)
+      .send(new Response("Internal Server Error", e.message, null));
+  }
+});
+
+router.put("/:id", auth, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error)
+    return res
+      .status(400)
+      .send(new Response("Bad Request", error.message, null));
+
+  const { question, categoryId, answers } = req.body;
+  const id = req.params.id;
+
+  try {
+    const category = await Category.findByPk(categoryId);
+    if (!category)
+      return res
+        .status(404)
+        .send(
+          new Response(
+            "Not Found",
+            `Category with id ${categoryId} not found.`,
+            null
+          )
+        );
+
+    const [affectedRows] = await Question.update(
+      {
+        question: question,
+        categoryId: categoryId,
+      },
+      { where: { id } }
+    );
+
+    if (!affectedRows)
+      return res
+        .status(404)
+        .send(
+          new Response("Not Found", `Question with id ${id} not found.`, null)
+        );
+
+    await Answer.destroy({ where: { questionId: id } });
+
+    answers.forEach(async (answerResult) => {
+      const { answer, isCorrect } = answerResult;
+      await Answer.create({
+        answer,
+        isCorrect,
+        questionId: id,
+      });
+    });
+
+    res.send(
+      new Response("OK", null, `Question with id ${id} successfully updated.`)
+    );
   } catch (e) {
     res
       .status(500)
