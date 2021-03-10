@@ -1,6 +1,7 @@
 ### Create Category
 POST http://localhost:3000/api/categories
 Content-Type: application/json
+API-Key: ErikRioSetiawan
 
 {
     "name": "Information Technology"
@@ -8,13 +9,16 @@ Content-Type: application/json
 
 ### Get Category
 GET http://localhost:3000/api/categories/1
+API-Key: ErikRioSetiawan
 
 ### Get All Category
 GET http://localhost:3000/api/categories
+API-Key: ErikRioSetiawan
 
 ### Update Category
 PUT http://localhost:3000/api/categories/1
 Content-Type: application/json
+API-Key: ErikRioSetiawan
 
 {
     "name": "Information Technology"
@@ -22,10 +26,12 @@ Content-Type: application/json
 
 ### Delete Category
 DELETE http://localhost:3000/api/categories/1
+API-Key: ErikRioSetiawan
 
 ### Create Question
 POST http://localhost:3000/api/questions
 Content-Type: application/json
+API-Key: ErikRioSetiawan
 
 {
     "question": "The result of 1 + 1 is...",
